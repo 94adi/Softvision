@@ -1,0 +1,32 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+    <div class="modal-body">
+		<table class = "table">
+			<thead>
+				<th>Price</th>
+				<th>Coin to buy</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+	    	<% current_user.ammounts.each do |ammount| %>
+	    		<tr>
+	    			<td><%= ammount.currency.name %> <%= (@ammount * @currency.price(ammount.currency)).round(3)  %></td>
+	    			<td><%= @currency.name %> <%= @ammount %></td>
+
+	    			<% if(ammount.quantity.to_f >= (@ammount * @currency.price(ammount.currency)).round(3)) %>
+	    			<%                                  #currency_to_buy  #quantity_to_buy       #ID of buying currency           %>
+	    			<td><%= link_to 'Buy', buy_currency_path(@currency, final_currency_ammount: @ammount, original_currency_id: ammount.currency.id, original_currency_ammount: ammount.quantity), method: :post %></td>
+	    			<% else %>
+	    			<td>You don't have enough</td>
+	    			<% end %>
+	    		</tr>
+	    	<% end %>
+	    	</tbody>
+    	</table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+ </div>

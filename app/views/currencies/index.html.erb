@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Currencies</h1>
+
+<div id="chart"></div>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Amount to buy</th>
+      <th>Actions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currencies.each do |currency| %>
+      <tr>
+        <td>
+          <%= image_tag("#{(currency.name.downcase.gsub(' ','_'))}.svg",size: '23x23') %> 
+          <%= currency.name %> (<%= currency.symbol %>)
+        </td>
+        <td><%= number_to_currency(currency.price) %></td>
+        
+        <%= form_with url: open_modal_currency_path(currency.id), id: "buy-form-#{currency.id}", method: :get do |f| %>
+          <td><%= f.number_field :quantity, step: :any %></td>
+          <td><%= f.submit 'Buy', class: 'btn btn-primary', id: "buy-#{currency.id}"%></td>
+         
+
+         <div class="modal fade" style="padding: 60px;" id="currency-<%= currency.id.to_s %>" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+          </div>
+          </div>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Currency', new_currency_path %>

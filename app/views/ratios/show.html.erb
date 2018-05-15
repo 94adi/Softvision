@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @ratio.currency_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @ratio.value %>
+</p>
+
+<%= link_to 'Edit', edit_ratio_path(@ratio) %> |
+<%= link_to 'Back', ratios_path %>

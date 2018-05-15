@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aclabs</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div class="row">
+       <div class="col-lg-12">
+         <nav class="navbar navbar-default">
+           <div class="container-fluid">              <div class="navbar-header">
+               <%= link_to 'Cryptocurrencies meet Ruby', root_path, class: 'navbar-brand' %>
+             </div>              <% if current_user %>                <ul class="nav navbar-nav">
+                 <li><%= link_to 'Currencies', currencies_path %></li>
+               </ul>                <ul class="nav navbar-nav navbar-right">
+                 <li><%= link_to 'Logout', logout_path %></li>
+               </ul>
+               <p class="navbar-text navbar-right">
+                 Welcome, <%= current_user.name %>.
+               </p>
+             <% else %>
+               <ul class="nav navbar-nav">
+                 <%= form_tag login_path do %>
+
+                  <%= label_tag :name, 'Name:' %>
+                  <%= text_field_tag :name, '' %>
+
+                  <%= label_tag :password, 'Password:' %>
+                  <%= password_field_tag :password, ''%>
+
+                  <%= submit_tag "Login",  :class => 'navbar-link' %>
+                  <% end %>
+                 <li><%= link_to 'Sign up', signup_path, class: 'navbar-link' %></li>
+               </ul>
+             <% end %>            </div><!-- /.container-fluid -->
+         </nav>
+       </div>
+</div>
+    <%= yield %>
+  </body>
+</html>

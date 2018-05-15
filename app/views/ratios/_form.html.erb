@@ -1,0 +1,27 @@
+<%= form_with(model: ratio, local: true) do |form| %>
+  <% if ratio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ratio.errors.count, "error") %> prohibited this ratio from being saved:</h2>
+
+      <ul>
+      <% ratio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :currency_id %>
+    <%= form.number_field :currency_id, id: :ratio_currency_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :ratio_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

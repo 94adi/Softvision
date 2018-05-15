@@ -1,0 +1,32 @@
+<%= form_with(model: ammount, local: true) do |form| %>
+  <% if ammount.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ammount.errors.count, "error") %> prohibited this ammount from being saved:</h2>
+
+      <ul>
+      <% ammount.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :ammount_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity, id: :ammount_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency_id %>
+    <%= form.number_field :currency_id, id: :ammount_currency_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

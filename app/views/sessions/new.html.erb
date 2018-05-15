@@ -1,0 +1,29 @@
+<div class="card card-body alert-info text-center">
+	<% if flash[:alert] %>
+	<p id = "notice"><%= flash[:alert] %></p>
+	<% end %>
+	<%= form_tag do %>
+	<fieldset>
+		<legend>Please Log in</legend>
+		<div>
+			<%= label_tag :name, 'Name:' %>
+			<%= text_field_tag :name, '', :class => "form-control text-center" %>
+		</div>
+
+		<div>
+			<%= label_tag :password, 'Password:' %>
+			<%= password_field_tag :password, '', :class => "form-control text-center" %>
+		</div>
+
+		<div>
+			<%= submit_tag "Login",  :class => 'btn btn-primary' %>
+		</div>
+
+		<div>
+			<p>If you don't have an account please <%= link_to 'Sign Up', signup_url %></p>
+		</div>
+
+	</fieldset>
+	<% end %>
+</div>
+		

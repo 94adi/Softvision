@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ratios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Currency</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ratios.each do |ratio| %>
+      <tr>
+        <td><%= ratio.currency_id %></td>
+        <td><%= ratio.value %></td>
+        <td><%= link_to 'Show', ratio %></td>
+        <td><%= link_to 'Edit', edit_ratio_path(ratio) %></td>
+        <td><%= link_to 'Destroy', ratio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ratio', new_ratio_path %>

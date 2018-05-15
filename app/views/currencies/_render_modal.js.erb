@@ -1,0 +1,2 @@
+$("#currency-<%= @currency.id.to_s %>").html("<%= escape_javascript(render 'currency_modal') %>");
+$("#currency-<%= @currency.id.to_s %>").modal('show');

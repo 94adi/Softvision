@@ -1,0 +1,25 @@
+<center>
+<h1>All transactions</h1>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Original id</th>
+      <th>Original amount</th>
+      <th>Final id</th>
+      <th>Final amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.user_id %></td>
+        <td><%= transaction.original_currency_id %></td>
+        <td><%= transaction.original_currency_ammount %></td>
+        <td><%= transaction.final_currency_id %></td>
+        <td><%= transaction.final_currency_ammount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</center>

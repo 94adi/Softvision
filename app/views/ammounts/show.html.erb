@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ammount.user_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @ammount.quantity %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @ammount.currency_id %>
+</p>
+
+<%= link_to 'Edit', edit_ammount_path(@ammount) %> |
+<%= link_to 'Back', ammounts_path %>

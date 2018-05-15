@@ -1,0 +1,8 @@
+<h1> Welcome, <%= @user.name %> ! </h1>
+
+<p> Your account was created on <%= @user.created_at %> </p>
+
+<p><%= link_to 'Log out', logout_url %></p>
+
+<p><%= link_to 'Your currencies', currencies_path %></p>
+

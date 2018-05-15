@@ -1,0 +1,2 @@
+module AmmountsHelper
+end
