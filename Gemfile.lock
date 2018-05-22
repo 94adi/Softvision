@@ -56,7 +56,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
-    digest (0.0.1)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -175,7 +174,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   byebug
   coffee-rails (~> 4.2)
-  digest
   httparty
   jbuilder (~> 2.5)
   jquery-rails
